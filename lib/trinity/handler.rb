@@ -31,5 +31,9 @@ module Trinity
     def redirect(url)
       [301, {'Content-Type' => 'text/plain', 'Location' => url}, "301 Moved Permanently to #{url}"]
     end
+
+    def not_found
+      [404, {'Content-Type' => 'text/plain'}, '404 Resource Not Found']
+    end
   end
 end
