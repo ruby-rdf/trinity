@@ -4,6 +4,25 @@ Trinity
 This is a minimalistic web framework for publishing [Linked
 Data](http://linkeddata.org/).
 
+Usage
+-----
+
+    % trinity etc/localhost.nt
+
+Hints
+-----
+Since [RDF.rb](http://rdf.rubyforge.org/) currently only supports the
+N-Triples serialization format, make sure that the input file to Trinity is
+in that format.
+
+You can convert RDF/XML to N-Triples as follows:
+
+    % rapper -i rdfxml -o ntriples input.rdf > output.nt
+
+You can convert Turtle to N-Triples as follows:
+
+    % rapper -i turtle -o ntriples input.ttl > output.nt
+
 Documentation
 -------------
 
