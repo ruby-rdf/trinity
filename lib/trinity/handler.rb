@@ -1,6 +1,7 @@
 module Trinity
   ##
   class Handler
+    autoload :Loader,   'trinity/handler/loader'
     autoload :Reasoner, 'trinity/handler/reasoner'
 
     attr_reader :application
