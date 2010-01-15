@@ -1,0 +1,11 @@
+#!/usr/bin/env ruby
+$:.unshift(File.expand_path(File.join(File.dirname(__FILE__), '..', 'lib')))
+require 'trinity'
+require 'thin'
+
+abort "Usage: #{File.basename($0)} site.rdf" if ARGV.empty?
+
+RDF::Repository.load(ARGV.shift) do |repository|
+  Thin::Logging.debug = true
+  Thin::Server.start('0.0.0.0', 3000, lambda { |env| [200, {'Content-Type' => 'text/plain'}, 'Coming soon!'] })
+end
