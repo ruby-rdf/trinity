@@ -72,6 +72,7 @@ Resources
 * <http://trinity.datagraph.org/>
 * <http://github.com/datagraph/trinity>
 * <http://gemcutter.org/gems/trinity>
+* <http://raa.ruby-lang.org/project/trinity/>
 * <http://www.ohloh.net/p/trinity>
 
 Authors
