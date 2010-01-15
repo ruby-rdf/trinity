@@ -8,5 +8,6 @@ require 'trinity/version'
 module Trinity
   autoload :Application, 'trinity/application'
   autoload :Handler,     'trinity/handler'
+  autoload :Renderer,    'trinity/renderer'
   autoload :Resource,    'trinity/resource'
 end
