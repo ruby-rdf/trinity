@@ -2,7 +2,7 @@ module Trinity
   module VERSION
     MAJOR = 0
     MINOR = 0
-    TINY  = 0
+    TINY  = 1
     EXTRA = nil
 
     STRING = [MAJOR, MINOR, TINY].join('.')
