@@ -1,8 +1,9 @@
 module Trinity
   ##
   class Handler
-    autoload :Loader,   'trinity/handler/loader'
-    autoload :Reasoner, 'trinity/handler/reasoner'
+    autoload :Initializer, 'trinity/handler/initializer'
+    autoload :Loader,      'trinity/handler/loader'
+    autoload :Reasoner,    'trinity/handler/reasoner'
 
     attr_reader :application
     attr_reader :repository
