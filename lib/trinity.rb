@@ -6,5 +6,5 @@ require 'rdf/ntriples'
 require 'trinity/version'
 
 module Trinity
-  # TODO
+  autoload :Handler, 'trinity/handler'
 end
