@@ -7,5 +7,5 @@ abort "Usage: #{File.basename($0)} site.rdf" if ARGV.empty?
 
 RDF::Repository.load(ARGV.shift) do |repository|
   Thin::Logging.debug = true
-  Thin::Server.start('0.0.0.0', 3000, lambda { |env| [200, {'Content-Type' => 'text/plain'}, 'Coming soon!'] })
+  Thin::Server.start('0.0.0.0', 3000, Trinity::Application.new(repository))
 end
