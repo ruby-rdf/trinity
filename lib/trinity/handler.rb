@@ -2,6 +2,7 @@ module Trinity
   ##
   class Handler
     autoload :Initializer, 'trinity/handler/initializer'
+    autoload :Acceptor,    'trinity/handler/acceptor'
     autoload :Aliaser,     'trinity/handler/aliaser'
     autoload :Redirector,  'trinity/handler/redirector'
     autoload :Loader,      'trinity/handler/loader'
