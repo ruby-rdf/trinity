@@ -7,6 +7,7 @@ module Trinity
     autoload :Redirector,  'trinity/handler/redirector'
     autoload :Loader,      'trinity/handler/loader'
     autoload :Reasoner,    'trinity/handler/reasoner'
+    autoload :Dispatcher,  'trinity/handler/dispatcher'
 
     attr_reader :application
     attr_reader :repository
