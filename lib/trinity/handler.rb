@@ -25,5 +25,9 @@ module Trinity
         repository.query(*args).extend(RDF::Enumerable)
       end
     end
+
+    def redirect(url)
+      [301, {'Content-Type' => 'text/plain', 'Location' => url}, "301 Moved Permanently to #{url}"]
+    end
   end
 end
