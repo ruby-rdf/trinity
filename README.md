@@ -45,6 +45,7 @@ Dependencies
 * [Mime::Types](http://gemcutter.org/gems/mime-types) (>= 1.16)
 * [Rack](http://gemcutter.org/gems/rack) (>= 1.1.0)
 * [Thin](http://gemcutter.org/gems/thin) (>= 1.2.5)
+* [Markaby](http://gemcutter.org/gems/markaby) (>= 0.5)
 
 Installation
 ------------

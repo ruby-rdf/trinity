@@ -34,5 +34,6 @@ GEMSPEC = Gem::Specification.new do |gem|
   gem.add_runtime_dependency     'mime-types',  '>= 1.16'
   gem.add_runtime_dependency     'rack',        '>= 1.1.0'
   gem.add_runtime_dependency     'thin',        '>= 1.2.5'
+  gem.add_runtime_dependency     'markaby',     '>= 0.5'
   gem.post_install_message       = nil
 end
