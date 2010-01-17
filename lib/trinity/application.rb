@@ -5,7 +5,7 @@ module Trinity
       this = self
       @repository  = repository
       @application = Rack::Builder.app do
-        use Trinity::Handler::Initializer, repository
+        use Trinity::Handler::Initializer, repository, options
         use Trinity::Handler::Acceptor,    repository
         use Trinity::Handler::Aliaser,     repository
         use Trinity::Handler::Redirector,  repository
