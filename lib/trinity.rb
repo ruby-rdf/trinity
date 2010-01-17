@@ -10,4 +10,5 @@ module Trinity
   autoload :Handler,     'trinity/handler'
   autoload :Renderer,    'trinity/renderer'
   autoload :Resource,    'trinity/resource'
+  autoload :Widget,      'trinity/widget'
 end
