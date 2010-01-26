@@ -43,14 +43,14 @@ class Trinity::Renderer
     # @param  [Markaby::Builder]
     # @return [void]
     def title(html)
-      widget(::RDF::DC.title, ::RDF::RDFS.label).content(html)
+      widget = widget(::RDF::DC.title, ::RDF::RDFS.label).content(html) rescue nil
     end
 
     ##
     # @param  [Markaby::Builder]
     # @return [void]
     def document(html)
-      widget(::RDF::DC.description, ::RDF::RDFS.comment).content(html)
+      widget(::RDF::DC.description, ::RDF::RDFS.comment).content(html) rescue nil
     end
 
     ##
