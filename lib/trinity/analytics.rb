@@ -4,6 +4,10 @@ module Trinity
   #
   # @see http://www.google.com/analytics/
   class Analytics < Trinity::Plugin
-    # TODO
+    NS = RDF::Vocabulary.new("http://gemcutter.org/gems/trinity-analytics#")
+
+    def footer(html)
+      # TODO
+    end
   end
 end
