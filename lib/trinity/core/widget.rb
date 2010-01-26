@@ -1,3 +1,5 @@
+require 'erb'
+
 module Trinity
   ##
   # Base class for widgets.
@@ -28,6 +30,25 @@ module Trinity
         when RDFS.comment, DC.description
           TextArea
       end
+    end
+
+    attr_accessor :value
+    attr_reader   :options
+
+    ##
+    # @param  [String] value
+    # @param  [Hash{Symbol => Object}] options
+    def initialize(value, options = {})
+      @value   = value
+      @options = options
+    end
+
+    ##
+    # @param  [Markaby::Builder] html
+    # @return [void]
+    # @abstract
+    def content(html)
+      html.text(ERB::Util.html_escape(value.inspect))
     end
 
     private
