@@ -35,7 +35,7 @@ class Trinity::Handler
           query([subject, ::RDF::DOAP.implements]) do |statement|
             load_plugin(statement.object)
           end
-          break if path.to_s == '/'
+          break if path.to_s == '/' || path.to_s.empty?
           subject.path = (path = path.parent).to_s
         end
       end
