@@ -29,6 +29,7 @@ GEMSPEC = Gem::Specification.new do |gem|
   gem.requirements               = []
   gem.add_development_dependency 'rspec',       '>= 1.2.9'
   gem.add_development_dependency 'yard' ,       '>= 0.5.2'
+  gem.add_development_dependency 'rack-test' ,  '>= 0.5.3'
   gem.add_runtime_dependency     'rdf',         '>= 0.0.8'
   gem.add_runtime_dependency     'addressable', '>= 2.1.1'
   gem.add_runtime_dependency     'mime-types',  '>= 1.16'
