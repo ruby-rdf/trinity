@@ -8,6 +8,7 @@ module Trinity
     autoload :Loader,      'trinity/core/handler/loader'
     autoload :Reasoner,    'trinity/core/handler/reasoner'
     autoload :Dispatcher,  'trinity/core/handler/dispatcher'
+    autoload :Admin,       'trinity/core/handler/admin'
 
     attr_reader :application
     attr_reader :repository
