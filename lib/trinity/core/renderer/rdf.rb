@@ -1,7 +1,10 @@
 class Trinity::Renderer
   ##
+  # RDF renderer.
   class RDF < Trinity::Renderer
     content_type 'text/plain'
+    content_type 'text/turtle'
+    content_type 'text/n3'
 
     include ::RDF
 
