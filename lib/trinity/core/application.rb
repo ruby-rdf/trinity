@@ -18,17 +18,31 @@ module Trinity
           run Trinity::Handler::Dispatcher.new(this, repository)
         end
       end
+      @options = options
       Trinity::Plugin.invoke(:initialize!, self)
     end
 
     ##
     # Defines a URL path handler.
     #
-    # @param  [String, #to_s] path
-    # @yield
+    # @overload
+    #   @param  [String, #to_s] path
+    #   @yield
+    #
+    # @overload
+    #   @param  [String, #to_s] path
+    #   @param  [Class, Handler, Proc] handler
+    #
     # @return [void]
-    def map(path, &block)
-      application.map(path.to_s, &block)
+    def map(path, handler = nil, &block)
+      case handler
+        when Class
+          application.map(path.to_s) { run handler.new(self) }
+        when Handler, Proc
+          application.map(path.to_s) { run handler }
+        else
+          application.map(path.to_s, &block)
+      end
     end
   end
 end

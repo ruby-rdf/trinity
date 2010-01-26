@@ -9,7 +9,7 @@ module Trinity
 
     def self.initialize!(application)
       require 'bitcache' unless defined?(::Bitcache)
-      application.map('/bitcache') { run Server.new(application) }
+      application.map('/bitcache', Server)
     end
 
     ##
