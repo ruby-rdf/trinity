@@ -3,7 +3,7 @@ class Trinity::Widget
   # Text field widget.
   class TextField < Trinity::Widget
     ##
-    # @param  [Markaby::Builder] html
+    # @param  [Builder] html
     # @return [void]
     def content(html)
       if editable?

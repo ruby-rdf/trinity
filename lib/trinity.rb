@@ -7,6 +7,7 @@ require 'trinity/version'
 
 module Trinity
   autoload :Application, 'trinity/core/application'
+  autoload :Builder,     'trinity/core/builder'
   autoload :Handler,     'trinity/core/handler'
   autoload :Plugin,      'trinity/core/plugin'
   autoload :Renderer,    'trinity/core/renderer'
@@ -18,3 +19,4 @@ end
 require 'trinity/admin'
 require 'trinity/analytics'
 require 'trinity/bitcache'
+require 'trinity/theme'

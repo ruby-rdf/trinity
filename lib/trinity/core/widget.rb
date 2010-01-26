@@ -46,7 +46,7 @@ module Trinity
     end
 
     ##
-    # @param  [Markaby::Builder] html
+    # @param  [Builder] html
     # @return [void]
     # @abstract
     def content(html)
