@@ -1,3 +1,6 @@
+<http://localhost:3000/> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Resource> .
+<http://localhost:3000/> <http://www.w3.org/2000/01/rdf-schema#comment> "Congratulations, your Trinity installation is up and running."@en .
+<http://localhost:3000/> <http://www.w3.org/2000/01/rdf-schema#label> "Trinity 0.0.1"@en .
 <http://localhost:3000/hello/alias> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Resource> .
 <http://localhost:3000/hello/alias> <http://www.w3.org/2002/07/owl#sameAs> <http://localhost:3000/hello> .
 <http://localhost:3000/hello/redirect> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Resource> .

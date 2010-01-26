@@ -3,9 +3,15 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix owl:  <http://www.w3.org/2002/07/owl#> .
 @prefix dc:   <http://purl.org/dc/terms/> .
+@prefix doap: <http://usefulinc.com/ns/doap#> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix sioc: <http://rdfs.org/sioc/ns#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix tri:  <http://trinity.datagraph.org/> .
+
+<> a rdfs:Resource ;
+  rdfs:label         "Trinity 0.0.1"@en ;
+  rdfs:comment       "Congratulations, your Trinity installation is up and running."@en .
 
 <hello> a rdfs:Resource ;
   rdfs:label         "Hello, world!"@en ;
