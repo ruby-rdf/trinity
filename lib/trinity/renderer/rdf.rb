@@ -9,7 +9,7 @@ class Trinity::Renderer
       super.merge({'Content-Type' => 'text/plain'}) # FIXME
     end
 
-    def body
+    def content
       RDF::Writer.for(:ntriples).buffer do |writer| # FIXME
         resource.each { |statement| writer << statement }
       end

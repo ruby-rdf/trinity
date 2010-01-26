@@ -26,7 +26,7 @@ module Trinity
 
     def render(resource, options = {})
       @resource = resource
-      [status, headers, [body]]
+      [status, headers, [content]]
     end
 
     def headers
@@ -39,7 +39,7 @@ module Trinity
 
     ##
     # @abstract
-    def body
+    def content
       raise NotImplementedError
     end
   end
