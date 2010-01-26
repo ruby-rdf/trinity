@@ -4,6 +4,8 @@ Trinity
 This is a minimalistic web framework for publishing [Linked
 Data](http://linkeddata.org/).
 
+* <http://github.com/datagraph/trinity>
+
 Usage
 -----
 To start up a Trinity server on <http://localhost:3000/>, invoke the
