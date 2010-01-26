@@ -6,7 +6,11 @@ class Trinity::Widget
     # @param  [Markaby::Builder] html
     # @return [void]
     def content(html)
-      super
+      if editable?
+        html.input(:type => :text, :name => predicate.to_s, :value => object.value.to_s)
+      else
+        html.text(object.value.to_s)
+      end
     end
   end
 end

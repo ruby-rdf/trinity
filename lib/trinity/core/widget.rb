@@ -32,14 +32,16 @@ module Trinity
       end
     end
 
-    attr_accessor :value
+    attr_accessor :object
     attr_reader   :options
 
     ##
-    # @param  [String] value
+    # @param  [RDF::Value] object
     # @param  [Hash{Symbol => Object}] options
-    def initialize(value, options = {})
-      @value   = value
+    # @option options [RDF::URI] :predicate (nil)
+    # @option options [Boolean]  :editable (false)
+    def initialize(object, options = {})
+      @object  = object
       @options = options
     end
 
@@ -48,7 +50,19 @@ module Trinity
     # @return [void]
     # @abstract
     def content(html)
-      html.text(ERB::Util.html_escape(value.inspect))
+      html.text(ERB::Util.html_escape(object.inspect))
+    end
+
+    ##
+    # @return [RDF::URI]
+    def predicate
+      options[:predicate]
+    end
+
+    ##
+    # @return [Boolean]
+    def editable?
+      options[:editable] == true
     end
 
     private

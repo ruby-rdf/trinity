@@ -43,18 +43,14 @@ class Trinity::Renderer
     # @param  [Markaby::Builder]
     # @return [void]
     def title(html)
-      if @title ||= data.query([subject, ::RDF::RDFS.label]).first.object
-        Trinity::Widget.for(::RDF::RDFS.label).new(@title).content(html)
-      end
+      widget(::RDF::DC.title, ::RDF::RDFS.label).content(html)
     end
 
     ##
     # @param  [Markaby::Builder]
     # @return [void]
     def document(html)
-      if @description ||= data.query([subject, ::RDF::RDFS.comment]).first.object
-        Trinity::Widget.for(::RDF::RDFS.comment).new(@description).content(html)
-      end
+      widget(::RDF::DC.description, ::RDF::RDFS.comment).content(html)
     end
 
     ##
@@ -62,6 +58,17 @@ class Trinity::Renderer
     # @return [void]
     def footer(html)
       # TODO
+    end
+
+    ##
+    # @param  [RDF::URI] predicate
+    # @return [Widget]
+    def widget(*predicates)
+      predicates.each do |predicate|
+        if object = data.query([subject, predicate]).first.object rescue nil
+          return Trinity::Widget.for(predicate).new(object, :predicate => predicate)
+        end
+     end
     end
   end
 end
