@@ -4,7 +4,8 @@ module Trinity
   #
   # @see http://bitcache.org/
   class Bitcache < Trinity::Plugin
-    NS = RDF::Vocabulary.new("http://gemcutter.org/gems/trinity-bitcache#")
+    URI = RDF::URI.new('http://gemcutter.org/gems/trinity-bitcache') 
+    NS  = RDF::Vocabulary.new("#{URI}#")
 
     def self.initialize!(application)
       require 'bitcache' unless defined?(::Bitcache)
