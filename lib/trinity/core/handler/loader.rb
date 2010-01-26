@@ -6,7 +6,8 @@ class Trinity::Handler
   # environment, where they are available to subsequent handlers.
   class Loader < Trinity::Handler
     def call(env)
-      env['trinity.data'] = query([env['trinity.subject']])
+      # FIXME: remove the .extend(...) after RDF.rb 0.0.9 is released:
+      env['trinity.data'] = query([env['trinity.subject']]).extend(RDF::Enumerable, RDF::Queryable)
       super
     end
   end

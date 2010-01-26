@@ -77,6 +77,22 @@ module Trinity
       @env = env
     end
 
+    ##
+    # Returns the RDF subject for this request.
+    #
+    # @return [RDF::URI]
+    def subject
+      env['trinity.subject']
+    end
+
+    ##
+    # Returns the RDF data for this request.
+    #
+    # @return [RDF::Queryable]
+    def data
+      env['trinity.data']
+    end
+
     def render(resource, options = {})
       @resource = resource
       [status, headers, [content]]
