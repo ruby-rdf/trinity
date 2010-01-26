@@ -70,7 +70,7 @@ module Trinity
       @@subclasses = [] # @private
 
       def self.inherited(child) # @private
-        @@subclasses << child
+        @@subclasses << child unless @@subclasses.include?(child)
         super
       end
 
