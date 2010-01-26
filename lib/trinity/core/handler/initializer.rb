@@ -14,6 +14,12 @@ class Trinity::Handler
     end
 
     def call(env)
+      set_resource_uri(env)
+      set_subject_uri(env)
+      super
+    end
+
+    def set_resource_uri(env)
       env['trinity.resource'] = RDF::URI.new(Addressable::URI.new({
         :scheme => env['rack.url_scheme'],
         :host   => options[:host] || env['SERVER_NAME'],
@@ -21,8 +27,10 @@ class Trinity::Handler
         :path   => env['REQUEST_URI'],
         :query  => env['QUERY_STRING'].to_s.size > 0 ? env['QUERY_STRING'] : nil,
       }))
+    end
+
+    def set_subject_uri(env)
       env['trinity.subject'] = env['trinity.resource']
-      super
     end
   end
 end
