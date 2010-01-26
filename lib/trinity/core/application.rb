@@ -15,6 +15,7 @@ module Trinity
           run Trinity::Handler::Dispatcher.new(this, repository)
         end
       end
+      Trinity::Plugin.invoke :initialize!, @application
     end
   end
 end
