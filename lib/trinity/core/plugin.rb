@@ -19,10 +19,8 @@ module Trinity
     #
     # @return [void]
     def self.invoke(method, *args, &block)
-      each do |plugin|
-        if plugin.respond_to?(method)
-          plugin.send(method, *args, &block)
-        end
+      @@subclasses.each do |plugin|
+        plugin.send(method, *args, &block) if plugin.respond_to?(method)
       end
     end
 
