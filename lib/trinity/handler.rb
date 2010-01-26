@@ -21,6 +21,10 @@ module Trinity
       application.call(env)
     end
 
+    ##
+    # Query the repository for statements matching the given pattern
+    #
+    # @param  [RDF::Query, RDF::Statement, Array(RDF::Value)] pattern
     def query(*args, &block)
       if block_given?
         repository.query(*args, &block)

@@ -1,5 +1,10 @@
 class Trinity::Handler
   ##
+  # Determine if a resource was requested with a specific
+  # file format (e.g. http://resource/uri.xml or 
+  # http://resource/uri.json) and rewrite the subject to
+  # be the specified URI minus the mime type and set the
+  # appropriate HTTP_ACCEPT header. Used later for rendering.
   class Acceptor < Trinity::Handler
     def call(env)
       if query([env['trinity.subject']]).empty?
