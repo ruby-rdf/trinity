@@ -1,5 +1,3 @@
-require 'erb'
-
 module Trinity
   ##
   # Base class for widgets.
