@@ -19,10 +19,30 @@ class Trinity::Renderer
     end
 
     ##
+    # @return [Class]
+    def theme_class
+      require theme_path
+      Trinity::Theme::Data # FIXME
+    end
+
+    ##
+    # @return [String]
+    def theme_path
+      File.join('trinity', 'theme', theme_name)
+    end
+
+    ##
+    # @return [String]
+    def theme_name
+      'data' # TODO: query RDF repository
+    end
+
+    ##
     # Returns the HTTP content for the response.
     #
     # @return [String]
     def content
+      require theme_path
       this = self # needed because Markaby is based on `instance_eval`
       @builder = Trinity::Builder.new(:indent => 2)
       @builder.instruct!

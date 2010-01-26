@@ -1,9 +1,9 @@
 require 'markaby'
 
-module Trinity
+class Trinity::Theme
   ##
   # Theme plugin for Trinity.
-  class Theme < Trinity::Plugin
+  class Data < Trinity::Theme
     URI = RDF::URI.new('http://gemcutter.org/gems/trinity-theme') 
     NS  = RDF::Vocabulary.new("#{URI}#")
 
