@@ -13,10 +13,10 @@ module Trinity
   autoload :Renderer,    'trinity/core/renderer'
   autoload :Resource,    'trinity/core/resource'
   autoload :Server,      'trinity/core/server'
+  autoload :Theme,       'trinity/core/theme'
   autoload :Widget,      'trinity/core/widget'
 end
 
 require 'trinity/admin'
 require 'trinity/analytics'
 require 'trinity/bitcache'
-require 'trinity/theme'
