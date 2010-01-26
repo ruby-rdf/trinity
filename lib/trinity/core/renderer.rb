@@ -71,6 +71,8 @@ module Trinity
     attr_reader :env
     attr_reader :resource
 
+    ##
+    # @param  [Hash{String => Object}] env
     def initialize(env)
       @env = env
     end
@@ -80,15 +82,30 @@ module Trinity
       [status, headers, [content]]
     end
 
+    ##
+    # Returns the HTTP headers for the response.
+    #
+    # @return [Hash{String => String}]
     def headers
-      {}
+      if content_type = self.class.content_type
+        {'Content-Type' => content_type}
+      else
+        {}
+      end
     end
 
+    ##
+    # Returns the HTTP status code for the response.
+    #
+    # @return [Integer]
     def status
       200 # OK
     end
 
     ##
+    # Returns the HTTP content for the response.
+    #
+    # @return [String]
     # @abstract
     def content
       raise NotImplementedError
