@@ -5,6 +5,9 @@ module Trinity
       this = self
       @repository  = repository
       @application = Rack::Builder.app do
+        map('/trinity.js') do
+          run Trinity::Handler::Admin.new(this, repository)
+        end
         map(options[:path] || '/') do
           use Trinity::Handler::Initializer, repository, options
           use Trinity::Handler::Acceptor,    repository

@@ -4,7 +4,7 @@ module Trinity
   #
   # @see http://bitcache.org/
   class Bitcache < Trinity::Plugin
-    def self.initialize!
+    def self.initialize!(application)
       require 'bitcache' unless defined?(::Bitcache)
     end
   end
