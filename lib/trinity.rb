@@ -6,10 +6,10 @@ require 'rdf/ntriples'
 require 'trinity/version'
 
 module Trinity
-  autoload :Application, 'trinity/application'
-  autoload :Handler,     'trinity/handler'
-  autoload :Renderer,    'trinity/renderer'
-  autoload :Resource,    'trinity/resource'
-  autoload :Server,      'trinity/server'
-  autoload :Widget,      'trinity/widget'
+  autoload :Application, 'trinity/core/application'
+  autoload :Handler,     'trinity/core/handler'
+  autoload :Renderer,    'trinity/core/renderer'
+  autoload :Resource,    'trinity/core/resource'
+  autoload :Server,      'trinity/core/server'
+  autoload :Widget,      'trinity/core/widget'
 end
