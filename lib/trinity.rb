@@ -15,5 +15,6 @@ module Trinity
   autoload :Widget,      'trinity/core/widget'
 end
 
+require 'trinity/admin'
 require 'trinity/analytics'
 require 'trinity/bitcache'
