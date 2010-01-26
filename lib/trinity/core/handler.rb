@@ -41,5 +41,10 @@ module Trinity
     def not_found
       [404, {'Content-Type' => 'text/plain'}, '404 Resource Not Found']
     end
+
+    def internal_error(message = nil)
+      [500, {'Content-Type' => 'text/plain'}, message || "Unspecified internal server error"]
+    end
+
   end
 end
