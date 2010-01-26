@@ -22,7 +22,7 @@ module Trinity
     end
 
     ##
-    # Query the repository for statements matching the given pattern
+    # Queries the repository for statements matching the given pattern.
     #
     # @param  [RDF::Query, RDF::Statement, Array(RDF::Value)] pattern
     def query(*args, &block)

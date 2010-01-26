@@ -1,8 +1,10 @@
 class Trinity::Handler
   ##
-  # Initialize the appropriate environment variables
-  # with a valid resource URI which will be used as the 
-  # subject of the current request
+  # Initialization.
+  #
+  # Initializes the appropriate Rack environment variables with a valid
+  # resource URI that will be used as the initial subject during the current
+  # request.
   class Initializer < Trinity::Handler
     attr_reader :options
 

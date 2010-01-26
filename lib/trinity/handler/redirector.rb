@@ -1,6 +1,9 @@
 class Trinity::Handler
   ##
-  # If a resource has a "see also" property, redirect to that property instead.
+  # URL redirection support.
+  #
+  # If a resource has a "see also" property, this handler performs a
+  # redirect to the value of that property.
   #
   # @see http://www.w3.org/TR/2000/CR-rdf-schema-20000327/#s2.3.4
   class Redirector < Trinity::Handler
