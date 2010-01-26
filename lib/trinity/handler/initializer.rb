@@ -1,5 +1,8 @@
 class Trinity::Handler
   ##
+  # Initialize the appropriate environment variables
+  # with a valid resource URI which will be used as the 
+  # subject of the current request
   class Initializer < Trinity::Handler
     attr_reader :options
 
