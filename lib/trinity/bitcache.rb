@@ -9,6 +9,14 @@ module Trinity
 
     def self.initialize!(application)
       require 'bitcache' unless defined?(::Bitcache)
+      application.map('/bitcache', Server)
+    end
+
+    ##
+    class Server < Trinity::Handler
+      def call(env)
+        [200, {'Content-Type' => 'text/plain'}, ['TODO']]
+      end
     end
   end
 end
