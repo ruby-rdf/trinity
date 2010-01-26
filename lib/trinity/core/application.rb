@@ -1,6 +1,9 @@
 module Trinity
   ##
   class Application < Trinity::Handler
+    ##
+    # @param  [RDF::Repository] repository
+    # @param  [Hash{Symbol => Object}] options
     def initialize(repository, options = {}, &block)
       this = self
       @repository  = repository
@@ -15,7 +18,17 @@ module Trinity
           run Trinity::Handler::Dispatcher.new(this, repository)
         end
       end
-      Trinity::Plugin.invoke :initialize!, @application
+      Trinity::Plugin.invoke(:initialize!, self)
+    end
+
+    ##
+    # Defines a URL path handler.
+    #
+    # @param  [String, #to_s] path
+    # @yield
+    # @return [void]
+    def map(path, &block)
+      application.map(path.to_s, &block)
     end
   end
 end
