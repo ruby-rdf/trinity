@@ -31,38 +31,49 @@ class Trinity::Theme
     def self.render_html_body(renderer)
       theme = self
       renderer.html do
-        table(:id => :statements) do
-          thead do
-            # TODO
-          end
-          tbody do
-            renderer.data.each do |statement|
-              tr(:class => statement) do
-                td(:class => :predicate) do
-                  text theme.render_predicate(statement)
-                end
-                td(:class => :object) do
-                  text theme.render_object(statement)
+        div(:id => :header) do
+          # TODO
+        end
+        div(:id => :content) do
+          table(:id => :description) do
+            thead do
+              th { text 'Property' } # TODO: L10n
+              th { text 'Value' }    # TODO: L10n
+            end
+            tbody do
+              renderer.data.each do |statement|
+                tr(:class => statement) do
+                  td(:class => :predicate) do
+                    theme.render_predicate(renderer, statement)
+                  end
+                  td(:class => :object) do
+                    theme.render_object(renderer, statement)
+                  end
                 end
               end
             end
           end
         end
+        div(:id => :footer) do
+          # TODO
+        end
       end
     end
 
     ##
+    # @param  [Renderer]       renderer
     # @param  [RDF::Statement] statement
     # @return [String]
-    def self.render_predicate(statement)
-      escape_string(render_value(statement.predicate))
+    def self.render_predicate(renderer, statement)
+      escape_string("<#{statement.predicate}>")
     end
 
     ##
+    # @param  [Renderer]       renderer
     # @param  [RDF::Statement] statement
     # @return [String]
-    def self.render_object(statement)
-      escape_string(render_value(statement.object))
+    def self.render_object(renderer, statement)
+      escape_string(render_value(renderer, statement.object))
     end
 
     ##
@@ -73,10 +84,20 @@ class Trinity::Theme
     end
 
     ##
+    # @param  [Renderer]   renderer
     # @param  [RDF::Value] value
     # @return [String]
-    def self.render_value(value)
-      value.inspect # TODO
+    def self.render_value(renderer, value)
+      case value
+        when RDF::URI
+          "<#{value}>"
+        when RDF::Node
+          value.to_s
+        when RDF::Literal
+          value.to_s
+        else
+          value.inspect
+      end
     end
 
     ##
