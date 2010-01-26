@@ -82,8 +82,8 @@ Authors
 -------
 
 * [Arto Bendiken](mailto:arto.bendiken@gmail.com) - <http://ar.to/>
-* [Ben Lavender](mailto:blavender@gmail.com) - <http://bhuga.net/>
 * [Josh Huckabee](mailto:joshhuckabee@gmail.com) - <http://joshhuckabee.com/>
+* [Ben Lavender](mailto:blavender@gmail.com) - <http://bhuga.net/>
 
 License
 -------

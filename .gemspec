@@ -12,7 +12,7 @@ GEMSPEC = Gem::Specification.new do |gem|
   gem.description        = 'Trinity is a minimalistic web framework for publishing Linked Data.'
   gem.rubyforge_project  = nil
 
-  gem.authors            = ['Arto Bendiken', 'Ben Lavender', 'Josh Huckabee']
+  gem.authors            = ['Arto Bendiken', 'Josh Huckabee', 'Ben Lavender']
   gem.email              = 'arto.bendiken@gmail.com'
 
   gem.platform           = Gem::Platform::RUBY
