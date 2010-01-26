@@ -107,7 +107,7 @@ class Trinity::Theme
       end
 
       def content
-        '/* TODO */'
+        File.read(File.join(File.dirname(__FILE__), 'data.css'))
       end
     end
 
@@ -118,7 +118,7 @@ class Trinity::Theme
       end
 
       def content
-        '/* TODO */'
+        File.read(File.join(File.dirname(__FILE__), 'data.js'))
       end
     end
   end
