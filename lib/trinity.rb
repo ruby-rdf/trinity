@@ -14,3 +14,5 @@ module Trinity
   autoload :Server,      'trinity/core/server'
   autoload :Widget,      'trinity/core/widget'
 end
+
+require 'trinity/analytics'
