@@ -1,8 +1,8 @@
 module Trinity
   ##
   class Renderer
-    autoload :RDF,  'trinity/renderer/rdf'
-    autoload :HTML, 'trinity/renderer/html'
+    autoload :RDF,  'trinity/core/renderer/rdf'
+    autoload :HTML, 'trinity/core/renderer/html'
 
     def self.for(env)
       Renderer::RDF # FIXME

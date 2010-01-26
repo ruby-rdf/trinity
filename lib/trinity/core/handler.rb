@@ -1,13 +1,13 @@
 module Trinity
   ##
   class Handler
-    autoload :Initializer, 'trinity/handler/initializer'
-    autoload :Acceptor,    'trinity/handler/acceptor'
-    autoload :Aliaser,     'trinity/handler/aliaser'
-    autoload :Redirector,  'trinity/handler/redirector'
-    autoload :Loader,      'trinity/handler/loader'
-    autoload :Reasoner,    'trinity/handler/reasoner'
-    autoload :Dispatcher,  'trinity/handler/dispatcher'
+    autoload :Initializer, 'trinity/core/handler/initializer'
+    autoload :Acceptor,    'trinity/core/handler/acceptor'
+    autoload :Aliaser,     'trinity/core/handler/aliaser'
+    autoload :Redirector,  'trinity/core/handler/redirector'
+    autoload :Loader,      'trinity/core/handler/loader'
+    autoload :Reasoner,    'trinity/core/handler/reasoner'
+    autoload :Dispatcher,  'trinity/core/handler/dispatcher'
 
     attr_reader :application
     attr_reader :repository
