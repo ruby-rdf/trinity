@@ -16,3 +16,4 @@ module Trinity
 end
 
 require 'trinity/analytics'
+require 'trinity/bitcache'
