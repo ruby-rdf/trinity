@@ -35,6 +35,11 @@ Spec::Matchers.define :be_ok_and_of_type do |expected_type|
   end
 end
 
+Spec::Matchers.define :redirect_to do |expected_location|
+  match do |response|
+    response.headers['Location'].should == expected_location
+  end
+end
 
 describe 'The helpers' do
 

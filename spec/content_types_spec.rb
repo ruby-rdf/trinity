@@ -1,6 +1,6 @@
 require File.dirname(__FILE__) + '/spec_helper'
 
-describe 'The Hello World Dataset' do
+describe 'Content-type handling (using the hello dataset)' do
 
   include Rack::Test::Methods
 
@@ -15,7 +15,7 @@ describe 'The Hello World Dataset' do
       get '/'
     end
 
-    it "should be http 200" do
+    it "should be http 200 and application/xhtml+xml" do
       last_response.should be_ok_and_of_type 'application/xhtml+xml'
     end
 
@@ -42,6 +42,10 @@ describe 'The Hello World Dataset' do
       last_response.should be_ok_and_of_type 'text/plain'
     end
 
+    it "should have 2 n-triple statements about hello" do
+      last_response.should only_be_about "http://example.org:80/hello", 2
+    end
+
   end
 
   context "/hello with an accept header of plain/text" do
@@ -52,7 +56,36 @@ describe 'The Hello World Dataset' do
     it "should have a content-type of text/plain" do
       last_response.should be_ok_and_of_type 'text/plain'
     end
+  end
 
+  context "/hello with an accept header of text/html" do
+    before :all do
+      header 'Accept', 'text/html'
+      get '/hello'
+    end
+    it "should have a content-type of text/html" do
+      last_response.should be_ok_and_of_type 'text/html'
+    end
+  end
+
+  context "/hello with an accept header of application/xhtml" do
+    before :all do
+      header 'Accept', 'application/xhtml'
+      get '/hello'
+    end
+    it "should have a content-type of application/xhtml" do
+      last_response.should be_ok_and_of_type 'application/xhtml'
+    end
+  end
+
+  context "/hello with an accept header of application/xhtml+xml" do
+    before :all do
+      header 'Accept', 'application/xhtml+xml'
+      get '/hello'
+    end
+    it "should have a content-type of application/xhtml+xml" do
+      last_response.should be_ok_and_of_type 'application/xhtml+xml'
+    end
   end
 
 
