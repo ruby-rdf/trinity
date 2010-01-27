@@ -65,7 +65,7 @@ class Trinity::Theme
     # @param  [RDF::Statement] statement
     # @return [String]
     def self.render_predicate(renderer, statement)
-      escape_string("<#{statement.predicate}>")
+      render_uri(renderer, statement.predicate)
     end
 
     ##
@@ -73,7 +73,68 @@ class Trinity::Theme
     # @param  [RDF::Statement] statement
     # @return [String]
     def self.render_object(renderer, statement)
-      escape_string(render_value(renderer, statement.object))
+      case value = statement.object
+        when RDF::Literal
+          render_literal(renderer, value)
+        when RDF::URI
+          render_uri(renderer, value)
+        when RDF::Node
+          render_node(renderer, value)
+        else
+          value = escape_string(value.inspect)
+      end
+    end
+
+    ##
+    # @param  [Renderer] renderer
+    # @param  [RDF::URI] uri
+    # @return [String]
+    def self.render_uri(renderer, uri)
+      value = escape_string(uri.to_s)
+      renderer.html do
+        a(:href => value) { value }
+      end
+    end
+
+    ##
+    # @param  [Renderer]  renderer
+    # @param  [RDF::Node] node
+    # @return [String]
+    def self.render_node(renderer, node)
+      value = escape_string(node.to_s)
+      renderer.html do
+        text(value)
+      end
+    end
+
+    ##
+    # @param  [Renderer]     renderer
+    # @param  [RDF::Literal] literal
+    # @return [String]
+    def self.render_literal(renderer, literal)
+      value = escape_string(literal.value.to_s)
+      case
+        when literal.datatyped?
+          type  = literal.datatype
+          value = case type
+            when XSD.string, nil
+              value
+            else
+              value # TODO
+          end
+          renderer.html do
+            span(:class => 'literal') { value } # FIXME
+          end
+        when literal.language?
+          lang = escape_string(literal.language.to_s)
+          renderer.html do
+            span(:class => 'literal', 'xml:lang' => lang, :title => lang) { value }
+          end
+        else
+          renderer.html do
+            span(:class => 'literal') { value }
+          end
+      end
     end
 
     ##
@@ -81,23 +142,6 @@ class Trinity::Theme
     # @return [String]
     def self.escape_string(string)
       ERB::Util.html_escape(string)
-    end
-
-    ##
-    # @param  [Renderer]   renderer
-    # @param  [RDF::Value] value
-    # @return [String]
-    def self.render_value(renderer, value)
-      case value
-        when RDF::URI
-          "<#{value}>"
-        when RDF::Node
-          value.to_s
-        when RDF::Literal
-          value.to_s
-        else
-          value.inspect
-      end
     end
 
     ##
