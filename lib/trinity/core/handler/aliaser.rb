@@ -10,8 +10,13 @@ class Trinity::Handler
     def call(env)
       # NB: if more than one matching statement is found, we will
       # effectively use the last found one:
-      query([env['trinity.subject'], RDF::OWL.sameAs]).each do |statement|
-        env['trinity.subject'] = statement.object
+      subjects = [env['trinity.subject']]
+      object = nil
+      while statement = query([env['trinity.subject'], RDF::OWL.sameAs]).first do
+        object = statement.object
+        return internal_error("Looping aliases") if subjects.include? object
+        subjects << object
+        env['trinity.subject'] = object
       end
       super
     end
