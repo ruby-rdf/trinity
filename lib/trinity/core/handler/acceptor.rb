@@ -16,7 +16,7 @@ class Trinity::Handler
           subject = subject[0...-extension.size]
           unless query([RDF::URI.new(subject)]).empty? || types.empty?
             env['trinity.subject'] = RDF::URI.new(subject)
-            env['HTTP_ACCEPT']     = env['HTTP_ACCEPT'].split(',').unshift(types.first.to_s).join(',')
+            env['HTTP_ACCEPT']     = env['HTTP_ACCEPT'].split(',').unshift(types.first.to_s).join(',') if env['HTTP_ACCEPT']
           end
         end
       end
