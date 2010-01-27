@@ -34,7 +34,7 @@ class Trinity::Handler
         :scheme => env['rack.url_scheme'],
         :host   => options[:host] || env['SERVER_NAME'],
         :port   => options[:port] || env['SERVER_PORT'],
-        :path   => env['REQUEST_URI'],
+        :path   => env['REQUEST_URI'] || env['PATH_INFO'],
         :query  => env['QUERY_STRING'].to_s.size > 0 ? env['QUERY_STRING'] : nil,
       }))
     end

@@ -20,10 +20,12 @@ module Trinity
     # @return [Class]
     def self.for(env)
       # TODO: add support for wildcards and explicit weights.
-      env['HTTP_ACCEPT'].split(',').each do |content_type_and_weight|
-        content_type, weight = content_type_and_weight.split(';')
-        each do |klass|
-          return klass if klass.content_types.include?(content_type)
+      if env['HTTP_ACCEPT']
+        env['HTTP_ACCEPT'].split(',').each do |content_type_and_weight|
+          content_type, weight = content_type_and_weight.split(';')
+          each do |klass|
+            return klass if klass.content_types.include?(content_type)
+          end
         end
       end
       Renderer::RDF # the default
