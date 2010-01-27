@@ -16,7 +16,7 @@ describe 'The Hello World Dataset' do
     end
 
     it "should be http 200" do
-      last_response.status.should be 200
+      last_response.should be_ok_and_of_type 'application/xhtml+xml'
     end
 
   end
@@ -30,9 +30,6 @@ describe 'The Hello World Dataset' do
       last_response.should be_ok_and_of_type 'application/xhtml+xml'
     end
 
-    it "should include the text 'Hello, World!'" do 
-      last_response.body.should include 'Hello, world!'
-    end
   end
 
   context "/hello.txt" do
@@ -45,11 +42,19 @@ describe 'The Hello World Dataset' do
       last_response.should be_ok_and_of_type 'text/plain'
     end
 
-    it "should have 2 statements about hello" do
-      last_response.should only_be_about "http://example.org:80/hello", 2
+  end
+
+  context "/hello with an accept header of plain/text" do
+    before :all do
+      header 'Accept', 'text/plain'
+      get '/hello'
+    end
+    it "should have a content-type of text/plain" do
+      last_response.should be_ok_and_of_type 'text/plain'
     end
 
   end
+
 
   context "a non-existent page" do
     before :all do
