@@ -1,0 +1,22 @@
+<http://example.org:80/> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Resource> .
+<http://example.org:80/> <http://www.w3.org/2000/01/rdf-schema#comment> "Congratulations, your Trinity installation is up and running."@en .
+<http://example.org:80/> <http://www.w3.org/2000/01/rdf-schema#label> "Trinity 0.0.1"@en .
+<http://example.org:80/hello> <http://www.w3.org/2000/01/rdf-schema#comment> "This is an example page for Trinity."@en .
+<http://example.org:80/hello> <http://www.w3.org/2000/01/rdf-schema#label> "Hello, world!"@en .
+<http://example.org:80/hello> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Resource> .
+<http://example.org:80/hello/alias> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Resource> .
+<http://example.org:80/hello/alias> <http://www.w3.org/2002/07/owl#sameAs> <http://example.org:80/hello> .
+<http://example.org:80/hello/redirect> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Resource> .
+<http://example.org:80/hello/redirect> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <http://example.org:80/hello> .
+<http://example.org:80/hello/redirect-loop> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Resource> .
+<http://example.org:80/hello/redirect-loop> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <http://example.org:80/hello/redirect-loop> .
+<http://example.org:80/hello/redirect-loopback> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Resource> .
+<http://example.org:80/hello/redirect-loopback> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <http://example.org:80/hello/redirect-loop> .
+<http://example.org:80/hello/alias-loop> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Resource> .
+<http://example.org:80/hello/alias-loop> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <http://example.org:80/hello/alias-loop> .
+<http://example.org:80/hello/alias-loopback> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Resource> .
+<http://example.org:80/hello/alias-loopback> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <http://example.org:80/hello/alias-loop> .
+<http://example.org:80/hello/two-redirects> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Resource> .
+<http://example.org:80/hello/two-redirects> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <http://example.org:80/hello/redirect> .
+<http://example.org:80/hello/two-aliases> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Resource> .
+<http://example.org:80/hello/two-aliases> <http://www.w3.org/2002/07/owl#sameAs> <http://example.org:80/hello/alias> .
