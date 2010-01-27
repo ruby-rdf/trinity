@@ -86,28 +86,6 @@ class Trinity::Theme
     end
 
     ##
-    # @param  [Renderer] renderer
-    # @param  [RDF::URI] uri
-    # @return [String]
-    def self.render_uri(renderer, uri)
-      value = escape_string(uri.to_s)
-      renderer.html do
-        a(:href => value) { value }
-      end
-    end
-
-    ##
-    # @param  [Renderer]  renderer
-    # @param  [RDF::Node] node
-    # @return [String]
-    def self.render_node(renderer, node)
-      value = escape_string(node.to_s)
-      renderer.html do
-        text(value)
-      end
-    end
-
-    ##
     # @param  [Renderer]     renderer
     # @param  [RDF::Literal] literal
     # @return [String]
@@ -134,6 +112,39 @@ class Trinity::Theme
           renderer.html do
             span(:class => 'literal') { value }
           end
+      end
+    end
+
+    ##
+    # @param  [Renderer] renderer
+    # @param  [RDF::URI] uri
+    # @return [String]
+    def self.render_uri(renderer, uri)
+      value = escape_string(uri.to_s)
+      title = value
+
+      # Shorten the URI into a CURIE/QName, if possible:
+      %w(cc dc doap exif foaf http owl rdf rdfs rss sioc skos wot xhtml xsd).each do |prefix|
+        vocab = RDF.const_get(prefix.upcase)
+        if uri.to_s.index(vocab.to_s) == 0
+          local_name = uri.to_s[vocab.to_s.size..-1]
+          title = [prefix, local_name].join(':')
+        end
+      end
+
+      renderer.html do
+        a(:href => value) { title }
+      end
+    end
+
+    ##
+    # @param  [Renderer]  renderer
+    # @param  [RDF::Node] node
+    # @return [String]
+    def self.render_node(renderer, node)
+      value = escape_string(node.to_s)
+      renderer.html do
+        text(value)
       end
     end
 
