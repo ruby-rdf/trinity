@@ -7,11 +7,12 @@
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix sioc: <http://rdfs.org/sioc/ns#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
-@prefix tri:  <http://trinity.datagraph.org/> .
+@prefix tri:  <http://trinity.datagraph.org/rdf/> .
 
 <> a rdfs:Resource ;
   rdfs:label         "Trinity 0.0.1"@en ;
-  rdfs:comment       "Congratulations, your Trinity installation is up and running."@en .
+  rdfs:comment       "Congratulations, your Trinity installation is up and running."@en ;
+  tri:theme          "data" .
 
 <hello> a rdfs:Resource ;
   rdfs:label         "Hello, world!"@en ;
