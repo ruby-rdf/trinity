@@ -42,7 +42,8 @@ Documentation
 Dependencies
 ------------
 
-* [RDF.rb](http://gemcutter.org/gems/rdf) (>= 0.0.8)
+* [RDF.rb](http://gemcutter.org/gems/rdf) (>= 0.0.9)
+* [RDF::JSON](http://gemcutter.org/gems/rdf-json) (>= 0.0.1)
 * [Addressable](http://gemcutter.org/gems/addressable) (>= 2.1.1)
 * [Mime::Types](http://gemcutter.org/gems/mime-types) (>= 1.16)
 * [Rack](http://gemcutter.org/gems/rack) (>= 1.1.0)
